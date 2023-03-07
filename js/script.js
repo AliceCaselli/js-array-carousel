@@ -11,7 +11,7 @@
 
 
 // creare un array di immagini
-const images = ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"];
+const images = ["img/01.webp", "img/02.webp", "img/03.webp", "img/04.webp", "img/05.webp"];
 
 // creare variabili per elementi html
 let upIconEl = document.getElementById("up-icon");
@@ -19,3 +19,45 @@ let upIconEl = document.getElementById("up-icon");
 let downIconEl = document.getElementById("down-icon");
 
 let activeImgEl = document.getElementById("img-active");
+
+let imgEl = document.getElementById("img");
+
+let i = 0;
+
+imgEl.src = images[i];
+
+
+// collegare l'evento slide al click
+downIconEl.addEventListener('click', function(){
+
+    i++;
+
+    if( i < images.length){
+
+        imgEl.src = images[i];
+
+    } else {
+        
+        i = 0;
+        imgEl.src = images[i];
+    }
+    
+
+})
+
+upIconEl.addEventListener('click', function(){
+
+    i--;
+
+    if( i >= 0 ){
+
+        imgEl.src = images[i];
+
+    } else {
+
+        i = images.length -1;
+
+        imgEl.src = images[i];
+
+    }
+})
