@@ -22,29 +22,43 @@ let activeImgEl = document.getElementById("img-active");
 
 let imgEl = document.getElementById("img");
 
+let thumbnailEl = document.getElementById("thumbnail");
+
 let i = 0;
 
 imgEl.src = images[i];
+
+let newElement;
+
+
 
 
 // collegare l'evento slide al click
 downIconEl.addEventListener('click', function(){
 
+    thumbnailImgEl[i].classList.remove("active");
+    
     i++;
-
+    
+    
     if( i < images.length ){
-
+        
         imgEl.src = images[i];
-
+        
+        
     } else {
         
         i = 0;
         imgEl.src = images[i];
     }
     
+    thumbnailImgEl[i].classList.add("active");
 })
 
 upIconEl.addEventListener('click', function(){
+
+
+    thumbnailImgEl[i].classList.remove("active");
 
     i--;
 
@@ -59,4 +73,24 @@ upIconEl.addEventListener('click', function(){
         imgEl.src = images[i];
 
     }
+
+    thumbnailImgEl[i].classList.add("active");
+
 })
+
+
+// creazione del thumbnail
+
+for(let i = 0; i < images.length; i++){
+
+    newElement = document.createElement ('img');
+
+    thumbnailEl.append(newElement);
+
+    newElement.src = images[i];
+
+}
+
+let thumbnailImgEl = document.querySelectorAll("#thumbnail img");
+thumbnailImgEl[i].classList.add("active");
+

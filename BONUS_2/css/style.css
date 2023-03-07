@@ -12,7 +12,7 @@ h1{
 .container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
 
     position: relative;
 
@@ -57,6 +57,26 @@ h1{
 }
 
 #thumbnail{
-    height: 100%;
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 400px;
+    width: 200px;
+
+}
+
+#thumbnail img{
+
+    height: calc(100% / 5);
+    width: 100%;
+
+    object-fit: cover;
+    object-position: right;
+
+    filter: brightness(0.7);
+}
+
+#thumbnail .active{
+    filter: brightness(1);
+    border: 1px solid white;
 }
